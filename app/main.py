@@ -46,7 +46,7 @@ def get_user(user_id: int, db: Session = Depends(get_db)):
     db_user = db.get(UserDB, user_id)
 
     if db_user is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Product not found",)
+        raise HTTPException(status_code=status.HTTP_422_NOT_FOUND, detail="Product not found",)
 
     return db_user
 

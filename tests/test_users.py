@@ -76,6 +76,12 @@ def test_get_missing_user_returns_404(client):
     assert response.status_code == 404
     assert "not found" in response.json()["detail"].lower()
 
+def test_get_priority(client):
+    response = client.get("/api/users/67")
+
+    assert response.status_code == 422
+    assert "invalid priority" in response.json()["detail"].lower()
+
 def test_delete_user(client):
     created = client.post(
         "/api/users",

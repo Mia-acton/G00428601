@@ -3,7 +3,7 @@ from typing import Annotated
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
 StudentIdStr = Annotated[str, StringConstraints(min_length=8, max_length=8)]
-DescriptionStr = Annotated[str, StringConstraints(min_length=5, max_length=20)]
+DescriptionStr = Annotated[str, StringConstraints(min_length=5, max_length=100)]
 StatusStr = Annotated[str, StringConstraints(min_length=4, max_length=10)]
 
 class UserCreate(BaseModel):
